@@ -35,7 +35,7 @@ The pipeline ingests 52 weeks of transactional data plus an incremental Week-53 
 
 ### 🎯 Business Problem
 
-A retail bank's credit card division was tracking performance through disconnected Excel exports — one file for transactions, one for customers, one for weekly incremental loads. Leadership had no single source of truth: *Which card tier drives the most revenue? Which segment is most likely to default? Are chip-based transactions growing?* Marketing budgets were spent blindly, risk signals were caught late, and quarterly reviews took days of manual reconciliation.
+A retail bank's credit card division was tracking performance through disconnected Excel exports - one file for transactions, one for customers, one for weekly incremental loads. Leadership had no single source of truth: *Which card tier drives the most revenue? Which segment is most likely to default? Are chip-based transactions growing?* Marketing budgets were spent blindly, risk signals were caught late, and quarterly reviews took days of manual reconciliation.
 
 ### 💡 Solution
 
@@ -47,13 +47,13 @@ Built a centralized PostgreSQL warehouse (`ccdb`) that consolidates transactiona
 >
 > 🧾 **667,234** transactions across **10,293** unique customer accounts
 >
-> 📈 **Blue Card** drives **70.6%** of total revenue ($37.8M) — clear volume leader
+> 📈 **Blue Card** drives **70.6%** of total revenue ($37.8M) - clear volume leader
 >
-> 💳 **70.3%** of revenue from Swipe; Chip at 23.9% — opportunity for contactless migration
+> 💳 **70.3%** of revenue from Swipe; Chip at 23.9% - opportunity for contactless migration
 >
-> ⚠️ **6.06%** delinquency rate (624 accounts) — flagged for risk-team review
+> ⚠️ **6.06%** delinquency rate (624 accounts) - flagged for risk-team review
 >
-> 🎯 **57.5%** activation-within-30-days rate — measurable onboarding target
+> 🎯 **57.5%** activation-within-30-days rate - measurable onboarding target
 
 ---
 
@@ -111,9 +111,9 @@ Built a centralized PostgreSQL warehouse (`ccdb`) that consolidates transactiona
 | `customer.csv` | Customer demographic master | 10,108 |
 | `cust_add.csv` | Week-53 customer incremental | 185 |
 
-### Data Model — Single-Direction Star Schema
+### Data Model - Single-Direction Star Schema
 
-Two related tables connected through the shared `Client_Num` surrogate key. The relationship filters *from* customer *to* transaction (one customer → many transactions), which is the optimal pattern for this analytical workload — slicers on customer attributes correctly filter transactional measures, while the reverse is blocked to prevent unintended cross-filtering.
+Two related tables connected through the shared `Client_Num` surrogate key. The relationship filters *from* customer *to* transaction (one customer → many transactions), which is the optimal pattern for this analytical workload - slicers on customer attributes correctly filter transactional measures, while the reverse is blocked to prevent unintended cross-filtering.
 
 ```
                     ┌─────────────────────────────┐
@@ -141,7 +141,7 @@ Two related tables connected through the shared `Client_Num` surrogate key. The 
 
 | Table | Rows | Key Columns | Purpose |
 |-------|------|-------------|---------|
-| `cc_detail` | 10,293 | Client_Num, Card_Category, Transaction Amount, Interest Earned, Quarter, Expense Type, Delinquency Flag | Transactional fact — one row per customer per week |
+| `cc_detail` | 10,293 | Client_Num, Card_Category, Transaction Amount, Interest Earned, Quarter, Expense Type, Delinquency Flag | Transactional fact - one row per customer per week |
 | `cust_detail` | 10,293 | Client_Num, Age, Gender, Income, Education, Job, State, Satisfaction Score | Customer dimension — one row per unique customer |
 
 ---
@@ -151,7 +151,7 @@ Two related tables connected through the shared `Client_Num` surrogate key. The 
 ### Analysis 1: Revenue Performance by Quarter
 **Business Question:** *Is the credit card portfolio growing, stagnating, or declining?*
 **Method:** Aggregated transaction amount + interest earned by quarter, rendered as a stacked-column-and-line combo chart.
-**Finding:** Steady upward trend — Q1: $11.25M → Q2: $11.14M → Q3: $11.45M → Q4: $11.70M — a **3.97% Q1-to-Q4 improvement**.
+**Finding:** Steady upward trend - Q1: $11.25M → Q2: $11.14M → Q3: $11.45M → Q4: $11.70M - a **3.97% Q1-to-Q4 improvement**.
 **Impact:** Marketing can confidently increase Q1 acquisition spend knowing the back-half trend supports payback.
 
 ### Analysis 2: Card Category Concentration Risk
@@ -356,34 +356,7 @@ IncomeGroup =
     )
 ```
 
----
 
-## 📁 Repository Structure
-
-```
-credit-card-analytics/
-│
-├── 📊 PowerBI/
-│   └── Credit Card Analsis.pbix          # Main Power BI report file
-│
-├── 🗄️ SQL/
-│   └── credit-card-schema.sql            # Schema + COPY ingestion + validation
-│
-├── 📂 Data/
-│   └── raw/
-│       ├── credit_card.csv               # 10,108 transactional rows (52 weeks)
-│       ├── customer.csv                  # 10,108 customer demographic rows
-│       ├── cc_add.csv                    # 185 Week-53 incremental transactions
-│       └── cust_add.csv                  # 185 Week-53 incremental customers
-│
-├── 🖼️ Screenshots/
-│   ├── cc-transaction-dashboard.png      # Page 1 hero screenshot
-│   ├── cc-customer-dashboard.png         # Page 2 hero screenshot
-│   └── data-model.png                    # Star schema diagram
-│
-├── 📄 README.md
-└── 📜 LICENSE
-```
 
 ---
 
@@ -391,7 +364,7 @@ credit-card-analytics/
 
 ### Prerequisites
 
-- [ ] **Power BI Desktop** (Feb 2026 or later) — [Download free](https://powerbi.microsoft.com/desktop/)
+- [ ] **Power BI Desktop** (Feb 2026 or later) - [Download free](https://powerbi.microsoft.com/desktop/)
 - [ ] **PostgreSQL 14+** (optional, only if rebuilding the schema)
 - [ ] **Git** for cloning
 
@@ -407,7 +380,7 @@ cd credit-card-analytics
 ```bash
 psql -U postgres -d postgres -f SQL/credit-card-schema.sql
 
-# Or run file-by-file in pgAdmin / DBeaver — update file paths in COPY commands
+# Or run file-by-file in pgAdmin / DBeaver - update file paths in COPY commands
 ```
 
 **3. Open the Power BI report**
@@ -428,7 +401,7 @@ Home → Transform Data → Data source settings
 
 ## 💡 Key Business Insights
 
-> 🔍 **Finding 1:** Revenue grew **3.97%** from Q1 to Q4 — healthy, steady trajectory.
+> 🔍 **Finding 1:** Revenue grew **3.97%** from Q1 to Q4 - healthy, steady trajectory.
 > → **Impact:** Leadership can confidently increase Q1 acquisition spend; back-half trend supports payback.
 
 > 🔍 **Finding 2:** The **Blue card generates 70.6% of revenue**; Platinum only 1.8%.
@@ -453,13 +426,12 @@ Home → Transform Data → Data source settings
 **[Your Name]**
 Data Analyst | Financial Analytics & BI Specialist
 
-I build end-to-end analytics solutions that turn raw operational data into executive-grade dashboards — SQL data warehousing, Power BI semantic modeling, DAX measures, and the business storytelling that ties it all together.
+I build end-to-end analytics solutions that turn raw operational data into executive-grade dashboards - SQL data warehousing, Power BI semantic modeling, DAX measures, and the business storytelling that ties it all together.
 
-- 📧 **Email:** [your.email@example.com](mailto:your.email@example.com)
-- 💼 **LinkedIn:** [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
-- 🌐 **Portfolio:** [your-portfolio.com](https://your-portfolio.com)
-- 🐙 **GitHub:** [github.com/your-username](https://github.com/your-username)
-- 📊 **Fiverr / Upwork:** [your-freelance-link](https://fiverr.com/your-profile)
+- 📧 **Email:** [your.email@example.com](mailto:mojahidulislam101010@gmail.com)
+- 💼 **LinkedIn:** [linkedin.com/in/your-profile](https://www.linkedin.com/in/mozahidul-islam-453662380/)
+- 🌐 **Portfolio:** [My-portfolio.com]()
+- 📊 **Fiverr / Upwork:** [My-freelance-link]()
 
 ---
 
@@ -474,7 +446,7 @@ Are you a financial services business looking to:
 
 **I can help. Let's talk.**
 
-[📩 Contact Me](mailto:your.email@example.com) · [📅 Book a Call](https://calendly.com/your-link)
+[📩 Contact Me](mailto:mojahidulislam101010@gmail.com) · [📅 Book a Call](https://calendly.com/my-link)
 
 ---
 
