@@ -1,5 +1,3 @@
-
-
 <div align="center">
 
 # 💳 Credit Card Financial & Customer Analytics Dashboard
@@ -21,7 +19,7 @@
 
 ### 🖼️ Hero Dashboard — Credit Card Transaction Report
 
-![Credit Card Transaction Dashboard](Screenshots/cc_transaction_dashboard.png)
+![Credit Card Transaction Dashboard](Screenshots/cc-transaction-dashboard.png)
 
 *A 2-page Power BI executive dashboard built on a PostgreSQL star-schema model with 10K+ transactional rows.*
 
@@ -31,64 +29,51 @@
 
 ## 📌 Project Overview
 
-This project delivers an end-to-end **credit card financial analytics solution** that converts raw weekly transaction data into strategic business intelligence. It bridges the gap between operational data and executive decision-making by combining a PostgreSQL data warehouse, a curated Power BI semantic model, and DAX-driven KPIs. The dashboard empowers product managers, risk teams, and marketing leaders to monitor revenue performance, customer demographics, expense behavior, and delinquency risk in a single, interactive view.
+An end-to-end **credit card financial analytics solution** that converts raw weekly transaction data into strategic business intelligence. It bridges the gap between operational data and executive decision-making by combining a PostgreSQL data warehouse, a curated Power BI semantic model, and DAX-driven KPIs.
 
-The pipeline ingests 52 weeks of transactional data plus an incremental Week-53 batch, validates it through SQL constraints, models it into a single-direction star schema, and surfaces it through two report pages containing 39 visuals — bar charts, KPI cards, treemaps, slicers, and a combo chart. Every visual is bound to a real business question: *Where is revenue coming from? Who are our customers? Where is risk concentrating?*
+The pipeline ingests 52 weeks of transactional data plus an incremental Week-53 batch, validates it through SQL constraints, models it into a single-direction star schema, and surfaces it through two report pages with 39 visuals. Every visual answers a real business question: *Where is revenue coming from? Who are our customers? Where is risk concentrating?*
 
 ### 🎯 Business Problem
 
-A retail bank's credit card division was tracking performance through disconnected Excel exports — one file for transactions, one for customers, and a separate one for weekly incremental loads. Leadership had no single source of truth to answer critical questions: *Which card category drives the most revenue? Which customer segment is most likely to default? Are chip-based transactions growing? Which expense type dominates spend?* Without these answers, marketing budgets were spent blindly, risk signals were caught late, and quarterly reviews took days of manual reconciliation.
+A retail bank's credit card division was tracking performance through disconnected Excel exports — one file for transactions, one for customers, one for weekly incremental loads. Leadership had no single source of truth: *Which card tier drives the most revenue? Which segment is most likely to default? Are chip-based transactions growing?* Marketing budgets were spent blindly, risk signals were caught late, and quarterly reviews took days of manual reconciliation.
 
 ### 💡 Solution
 
-Built a centralized PostgreSQL data warehouse (`ccdb`) that consolidates transactional and customer data into two normalized tables. Created a Power BI semantic model with explicit relationships, calculated columns for `AgeGroup` and `IncomeGroup`, and DAX measures for Revenue, Interest Earned, Transaction Volume, and Delinquency Rate. Delivered a two-page interactive dashboard with cross-filtering slicers (Quarter, Card Category, Gender, Income Group) that lets executives drill from macro KPIs down to individual customer segments in under three clicks.
+Built a centralized PostgreSQL warehouse (`ccdb`) that consolidates transactional and customer data into two normalized tables. Created a Power BI semantic model with explicit relationships, calculated columns for age and income groups, and DAX measures for revenue, interest, transaction volume, and delinquency rate. Delivered a two-page interactive dashboard with cross-filtering slicers that lets executives drill from macro KPIs down to individual segments in under three clicks.
 
 ### 📊 Key Results
 
 > 💰 **$53.5M+** total revenue analyzed across 4 quarters (transaction amount + interest earned)
 >
-> 🧾 **667,234** transactions processed across **10,293** unique customer accounts
+> 🧾 **667,234** transactions across **10,293** unique customer accounts
 >
 > 📈 **Blue Card** drives **70.6%** of total revenue ($37.8M) — clear volume leader
 >
-> 💳 **70.3%** of revenue comes from Swipe transactions; Chip usage at 23.9% — opportunity for contactless migration
+> 💳 **70.3%** of revenue from Swipe; Chip at 23.9% — opportunity for contactless migration
 >
 > ⚠️ **6.06%** delinquency rate (624 accounts) — flagged for risk-team review
 >
-> 🎯 **57.5%** activation-within-30-days rate — measurable onboarding improvement target
+> 🎯 **57.5%** activation-within-30-days rate — measurable onboarding target
 
 ---
 
 ## 🖥️ Dashboard Preview
 
-The Power BI report contains two pages, each tuned for a different audience: the **Transaction** page for finance and product teams, and the **Customer** page for marketing and customer-success teams.
-
 ### 📊 Page 1: CC Transaction Report
 
-![CC Transaction Dashboard](Screenshots/cc_transaction_dashboard.png)
+![CC Transaction Dashboard](Screenshots/cc-transaction-dashboard.png)
 
-> *Quarterly revenue, transaction volume, card-category breakdown, expense-type distribution, chip-vs-swipe behavior, and delinquency signals — all on one executive view.*
+> *Quarterly revenue, transaction volume, card-category breakdown, expense-type distribution, chip-vs-swipe behavior, and delinquency signals.*
 
-**Visuals on this page (20 visuals):**
-- 4 KPI cards (Revenue, Transaction Amount, Transaction Count, Interest Earned)
-- Quarter slicer + Card Category slicer
-- Stacked column & line combo chart — Revenue & Transaction Count by Quarter
-- Bar charts — Revenue by Card Category, Revenue by Expense Type, Revenue by Use Chip
-- Treemaps — Revenue distribution by Expense Type and Card Category
-- Detailed transaction table
+**Visuals (20):** 4 KPI cards · Quarter & Card Category slicers · Stacked column & line combo chart · Bar charts (Revenue by Card, Expense Type, Use Chip) · Treemaps · Transaction detail table.
 
 ### 👥 Page 2: CC Customer Report
 
-![CC Customer Dashboard](Screenshots/cc_customer_dashboard.png)
+![CC Customer Dashboard](Screenshots/cc-customer-dashboard.png)
 
-> *Customer demographics, income & age groups, satisfaction score, job distribution, and geographic spread — for targeted marketing and retention.*
+> *Customer demographics, income & age groups, satisfaction score, job distribution, and geographic spread.*
 
-**Visuals on this page (19 visuals):**
-- 4 KPI cards (Total Customers, Avg Income, Avg Satisfaction Score, Avg Age)
-- Slicers — Gender, Income Group, Age Group
-- Bar charts — Customers by Gender, Education, Marital Status, Job, State
-- Treemaps — Customer distribution by Job and Education
-- Customer detail table with satisfaction scores
+**Visuals (19):** 4 KPI cards · Gender, Income Group, Age Group slicers · Bar charts (Customers by Gender, Education, Marital Status, Job, State) · Treemaps · Customer detail table.
 
 > 🔗 **Live Dashboard:** *(Publish to Power BI Service and link here)*
 
@@ -98,8 +83,8 @@ The Power BI report contains two pages, each tuned for a different audience: the
 
 | Tool | Purpose | Version |
 |------|---------|---------|
-| **Power BI Desktop** | Dashboard design, DAX modeling, interactive visualization | Feb 2026 Release |
-| **PostgreSQL** | Relational data warehouse, schema design, batch ingestion | 14+ |
+| **Power BI Desktop** | Dashboard design, DAX modeling, interactive visualization | Feb 2026 |
+| **PostgreSQL** | Relational warehouse, schema design, batch ingestion | 14+ |
 | **DAX** | Calculated measures, dynamic KPIs, time intelligence | Native |
 | **Power Query (M)** | Data profiling, type detection, incremental load | Native |
 | **CSV / Excel** | Raw data source & weekly incremental feeds | — |
@@ -109,43 +94,38 @@ The Power BI report contains two pages, each tuned for a different audience: the
 
 ## 🗄️ Data Architecture
 
-The pipeline follows a classic **ETL → Semantic Model → Dashboard** flow, optimized for analytical query patterns rather than transactional writes.
-
 ```
 ┌──────────────┐    ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
 │  Raw CSV     │───▶│  PostgreSQL      │───▶│  Power BI        │───▶│  Interactive     │
 │  (4 files)   │    │  Schema (ccdb)   │    │  Semantic Model  │    │  Dashboard       │
 └──────────────┘    └──────────────────┘    └──────────────────┘    └──────────────────┘
    10,293 rows         2 tables              Star schema             2 pages / 39 visuals
-   + Week-53           + COPY import         + DAX measures          + slicers / drill
 ```
 
 ### Data Sources
 
-| Source File | Description | Rows | Role |
-|-------------|-------------|------|------|
-| `credit_card.csv` | Primary 52-week transaction feed | 10,108 | Transactional fact (base) |
-| `cc_add.csv` | Week-53 incremental batch (tab-separated) | 185 | Incremental transactional fact |
-| `customer.csv` | Customer demographic master | 10,108 | Customer dimension (base) |
-| `cust_add.csv` | Week-53 customer incremental batch | 185 | Incremental customer dimension |
+| File | Description | Rows |
+|------|-------------|------|
+| `credit_card.csv` | Primary 52-week transaction feed | 10,108 |
+| `cc_add.csv` | Week-53 incremental batch (tab-delimited) | 185 |
+| `customer.csv` | Customer demographic master | 10,108 |
+| `cust_add.csv` | Week-53 customer incremental | 185 |
 
-### Data Model
+### Data Model — Single-Direction Star Schema
 
-A **single-direction star schema** with two related tables connected through the shared `Client_Num` surrogate key. The relationship is filtered *from* customer *to* transaction (one customer → many transactions), which is the optimal pattern for this analytical workload — slicers on customer attributes correctly filter transactional measures, while the reverse is blocked to prevent unintended cross-filtering.
+Two related tables connected through the shared `Client_Num` surrogate key. The relationship filters *from* customer *to* transaction (one customer → many transactions), which is the optimal pattern for this analytical workload — slicers on customer attributes correctly filter transactional measures, while the reverse is blocked to prevent unintended cross-filtering.
 
 ```
                     ┌─────────────────────────────┐
                     │       cust_detail (Dim)     │
                     │  ─────────────────────────  │
                     │  Client_Num (PK)            │
-                    │  Customer_Age               │
-                    │  Gender  ·  Education       │
-                    │  Income ·  IncomeGroup      │
-                    │  AgeGroup ·  Customer_Job   │
-                    │  State_cd ·  Marital_Status │
+                    │  Customer_Age · Gender      │
+                    │  Education · Income         │
+                    │  IncomeGroup · AgeGroup     │
+                    │  Customer_Job · State_cd    │
                     └──────────────┬──────────────┘
                                    │  1
-                                   │
                                    │  ∞
                     ┌──────────────▼──────────────┐
                     │      cc_detail (Fact)       │
@@ -153,93 +133,71 @@ A **single-direction star schema** with two related tables connected through the
                     │  Client_Num (FK)            │
                     │  Card_Category              │
                     │  Total_Trans_Amt            │
-                    │  Total_Trans_Ct             │
-                    │  Interest_Earned            │
-                    │  Revenue (calculated)       │
-                    │  Exp_Type ·  Use_Chip       │
-                    │  Qtr ·  Week_Start_Date     │
-                    │  Delinquent_Acc             │
+                    │  Interest_Earned · Revenue  │
+                    │  Exp_Type · Use_Chip        │
+                    │  Qtr · Delinquent_Acc       │
                     └─────────────────────────────┘
 ```
 
-### Key Tables
-
-| Table Name | Rows | Key Columns | Purpose |
-|------------|------|-------------|---------|
-| `cc_detail` | 10,293 | `Client_Num`, `Card_Category`, `Total_Trans_Amt`, `Interest_Earned`, `Qtr`, `Exp_Type`, `Use_Chip`, `Delinquent_Acc` | Transactional fact table — every row is one customer's weekly activity |
-| `cust_detail` | 10,293 | `Client_Num`, `Customer_Age`, `Gender`, `Income`, `Education_Level`, `Customer_Job`, `State_cd`, `Cust_Satisfaction_Score` | Customer dimension — one row per unique customer with demographics |
+| Table | Rows | Key Columns | Purpose |
+|-------|------|-------------|---------|
+| `cc_detail` | 10,293 | Client_Num, Card_Category, Transaction Amount, Interest Earned, Quarter, Expense Type, Delinquency Flag | Transactional fact — one row per customer per week |
+| `cust_detail` | 10,293 | Client_Num, Age, Gender, Income, Education, Job, State, Satisfaction Score | Customer dimension — one row per unique customer |
 
 ---
 
 ## 📊 Key Analyses Performed
 
 ### Analysis 1: Revenue Performance by Quarter
-
-**Business Question:** *Is the credit card portfolio growing, stagnating, or declining across the year?*
-**Method:** Aggregated `Total_Trans_Amt + Interest_Earned` by `Qtr` and rendered as a stacked-column-and-line combo chart with transaction count on the secondary axis.
-**Finding:** Revenue shows a steady upward trend — Q1: $11.25M → Q2: $11.14M → Q3: $11.45M → Q4: $11.70M — a **3.97% quarter-over-quarter** improvement from Q1 to Q4, indicating healthy portfolio momentum.
-**Business Impact:** Marketing and product teams can confidently increase Q1 acquisition spend knowing the back-half trend supports payback; finance can adjust revenue forecasts upward.
-
----
+**Business Question:** *Is the credit card portfolio growing, stagnating, or declining?*
+**Method:** Aggregated transaction amount + interest earned by quarter, rendered as a stacked-column-and-line combo chart.
+**Finding:** Steady upward trend — Q1: $11.25M → Q2: $11.14M → Q3: $11.45M → Q4: $11.70M — a **3.97% Q1-to-Q4 improvement**.
+**Impact:** Marketing can confidently increase Q1 acquisition spend knowing the back-half trend supports payback.
 
 ### Analysis 2: Card Category Concentration Risk
-
-**Business Question:** *How dependent is revenue on a single card tier, and what's the upside in premium tiers?*
-**Method:** Grouped revenue by `Card_Category` (Blue, Silver, Gold, Platinum) and visualized as a bar chart with percentage labels.
-**Finding:** The **Blue card alone generates 70.6% of total revenue ($37.8M)**, while Platinum contributes only 1.8% ($953K). Silver sits at 8.7% and Gold at 3.9%.
-**Business Impact:** There's a clear premium-tier upgrade opportunity. Targeted campaigns to migrate high-income Blue customers to Silver/Gold could lift per-account revenue significantly — and reduce concentration risk on a single product.
-
----
+**Business Question:** *How dependent is revenue on a single card tier?*
+**Method:** Grouped revenue by card category and visualized as a bar chart with percentage labels.
+**Finding:** **Blue card generates 70.6% of revenue ($37.8M)**; Platinum contributes only 1.8% ($953K).
+**Impact:** Premium-tier upgrade opportunity. Targeted migration campaigns to high-income Blue customers could lift per-account revenue.
 
 ### Analysis 3: Expense Type Spending Patterns
-
 **Business Question:** *Where do cardholders spend the most, and which categories should we incentivize?*
-**Method:** Aggregated `Total_Trans_Amt` by `Exp_Type` and rendered as a treemap for proportional visibility.
-**Finding:** **Bills dominate** with $11.17M (24.5%), followed by Entertainment ($7.82M), Fuel ($7.71M), Grocery ($7.03M), Food ($6.81M), and Travel ($5.00M). The top three categories account for **58.5% of all spend**.
-**Business Impact:** Reward structures should be revised — the current 1× flat rewards model under-monetizes Bills. A tiered cashback on Bills, Entertainment, and Fuel would directly drive transaction volume in the highest-yield categories.
+**Method:** Aggregated transaction amount by expense type, rendered as a treemap.
+**Finding:** **Bills dominate with $11.17M (24.5%)**, followed by Entertainment ($7.82M), Fuel ($7.71M), Grocery ($7.03M), Food ($6.81M), Travel ($5.00M). Top three categories account for **58.5% of all spend**.
+**Impact:** The flat 1× rewards model under-monetizes Bills. A tiered cashback on top categories would directly drive transaction volume.
 
----
-
-### Analysis 4: Transaction Channel Behavior (Chip vs Swipe vs Online)
-
+### Analysis 4: Transaction Channel Behavior (Chip vs Swipe)
 **Business Question:** *Are we migrating customers to more secure chip-based transactions?*
-**Method:** Grouped revenue and transaction count by `Use_Chip` field, visualized as a horizontal bar chart.
-**Finding:** **Swipe transactions still account for 70.3% of revenue ($28.5M)**, Chip 23.9% ($14.2M), and Online only 5.8% ($2.8M).
-**Business Impact:** Chip adoption is lagging industry benchmarks. A security-first messaging campaign plus a one-time cashback incentive on Chip transactions could meaningfully reduce swipe-fraud exposure. Online channel is also underpenetrated — a digital-onboarding push could unlock a younger customer segment.
-
----
+**Method:** Grouped revenue by `Use_Chip` field, visualized as a horizontal bar chart.
+**Finding:** **Swipe still drives 70.3% of revenue ($28.5M)**; Chip 23.9% ($14.2M); Online only 5.8% ($2.8M).
+**Impact:** A security-first messaging campaign plus one-time cashback on Chip transactions could meaningfully reduce swipe-fraud exposure.
 
 ### Analysis 5: Customer Segmentation by Income & Age
-
-**Business Question:** *Which demographic segments drive the most value, and where should acquisition focus?*
-**Method:** Created DAX-calculated `IncomeGroup` and `AgeGroup` columns in the customer table, then cross-tabbed against customer count and average satisfaction.
-**Finding:** Average customer age is **46 years** with average income of **$57,087** (range: $1,250 to $515,324). Married customers (5,218) outnumber Singles (4,310), and Graduates form the largest education segment (4,208). Customer satisfaction averages **3.19 / 5** — a clear improvement opportunity.
-**Business Impact:** Premium card campaigns should target the high-income, graduate, married segment (highest LTV profile). The sub-3.5 satisfaction score is a churn risk signal — customer success teams should prioritize outreach to the lowest-quartile satisfaction cohort.
-
----
+**Business Question:** *Which segments drive the most value, and where should acquisition focus?*
+**Method:** Created DAX-calculated `IncomeGroup` and `AgeGroup` columns, cross-tabbed against customer count and satisfaction.
+**Finding:** Average customer age is **46**, average income **$57,087**. Married customers (5,218) outnumber Singles (4,310). Satisfaction averages **3.19 / 5**.
+**Impact:** Premium card campaigns should target the high-income, graduate, married segment. The sub-3.5 satisfaction score is a churn risk signal.
 
 ### Analysis 6: Delinquency & Risk Concentration
-
-**Business Question:** *What share of the portfolio is delinquent, and is the rate acceptable?*
-**Method:** Counted `Delinquent_Acc = 1` records against total, computed percentage, and cross-filtered by card category and expense type through slicers.
-**Finding:** **624 accounts (6.06%)** are flagged delinquent. Combined with the 42.5% of accounts that did *not* activate within 30 days, this points to a high-risk onboarding funnel.
-**Business Impact:** Risk team should review the delinquent cohort for common attributes (card category, expense pattern, income band) and tighten underwriting criteria for similar profiles. The 57.5% 30-day activation rate needs an onboarding workflow overhaul.
+**Business Question:** *What share of the portfolio is delinquent?*
+**Method:** Counted delinquent accounts against total, computed percentage, cross-filtered by card category and expense type.
+**Finding:** **624 accounts (6.06%)** flagged delinquent. Combined with **42.5% non-activation within 30 days**, this signals a leaky onboarding funnel.
+**Impact:** Risk team should review the delinquent cohort for common attributes and tighten underwriting for similar profiles.
 
 ---
 
 ## 🔍 SQL Highlights
 
-The SQL pipeline does the heavy lifting on data ingestion and validation. Below are the most important queries — full source in [`SQL/credit_card_schema.sql`](SQL/credit_card_schema.sql).
+Full source in [`SQL/credit-card-schema.sql`](SQL/credit-card-schema.sql).
 
-### Query 1: Database & Schema Initialization
+### Query 1: Schema Initialization
 
 ```sql
--- Purpose: Create the analytical database and define two normalized tables
---          with explicit types, lengths, and decimal precision for financial accuracy.
+-- Purpose: Create database and define two normalized tables
+--          with explicit types and decimal precision for financial accuracy.
 
 CREATE DATABASE ccdb;
 
--- Transactional fact table — one row per customer per week
 CREATE TABLE cc_detail (
     Client_Num            INT,
     Card_Category         VARCHAR(20),
@@ -261,7 +219,6 @@ CREATE TABLE cc_detail (
     Delinquent_Acc        VARCHAR(5)
 );
 
--- Customer dimension table — one row per unique customer
 CREATE TABLE cust_detail (
     Client_Num              INT,
     Customer_Age            INT,
@@ -280,15 +237,13 @@ CREATE TABLE cust_detail (
     Cust_Satisfaction_Score INT
 );
 ```
-> **Why this matters:** DECIMAL(10,2) on `Credit_Limit` and DECIMAL(10,3) on `Interest_Earned` preserve financial precision that FLOAT would silently corrupt. VARCHAR lengths are sized to actual data — no over-allocation, no truncation risk.
+> **Why this matters:** `DECIMAL(10,2)` on credit limit and `DECIMAL(10,3)` on interest preserve financial precision that `FLOAT` would silently corrupt.
 
----
-
-### Query 2: Bulk CSV Ingestion with Header Validation
+### Query 2: Bulk CSV Ingestion
 
 ```sql
--- Purpose: Bulk-load CSV data into PostgreSQL using the COPY command.
---          HEADER flag skips the first row (column names) automatically.
+-- Purpose: Bulk-load CSVs using COPY. HEADER skips column-name row.
+--          COPY is ~10–100x faster than row-by-row INSERT.
 
 COPY cc_detail
 FROM 'D:\credit_card.csv'
@@ -300,19 +255,15 @@ FROM 'D:\customer.csv'
 DELIMITER ','
 CSV HEADER;
 ```
-> **Why this matters:** `COPY` is ~10–100× faster than row-by-row INSERT and runs in a single transaction, ensuring either complete load or clean rollback — critical for reproducible analytics pipelines.
 
----
-
-### Query 3: Incremental Week-53 Load (Append Pattern)
+### Query 3: Incremental Week-53 Load
 
 ```sql
--- Purpose: Append the Week-53 incremental batch to existing tables.
---          Note: cc_add.csv is TAB-delimited (different from base files).
+-- Purpose: Append Week-53 incremental batch (note: tab-delimited).
 
 COPY cc_detail
 FROM 'D:\cc_add.csv'
-DELIMITER E'\t'      -- tab delimiter for incremental file
+DELIMITER E'\t'      -- tab escape syntax
 CSV HEADER;
 
 COPY cust_detail
@@ -320,15 +271,13 @@ FROM 'D:\cust_add.csv'
 DELIMITER ','
 CSV HEADER;
 ```
-> **Why this matters:** Incremental loading is the backbone of any real-world warehouse. Mixing delimiters in source files is common — using `E'\t'` escape syntax handles it cleanly without external preprocessing.
+> **Why this matters:** Incremental loading is the backbone of any real-world warehouse. Mixing delimiters in source files is common — `E'\t'` handles it cleanly.
 
----
-
-### Query 4: Data Quality & Revenue Validation
+### Query 4: Revenue Validation (Golden-Source Check)
 
 ```sql
--- Purpose: Validate load completeness and compute headline revenue figures
---          used to cross-check Power BI KPI cards.
+-- Purpose: Cross-check Power BI KPI cards against SQL aggregates.
+--          If these match, the entire pipeline is trustworthy.
 
 SELECT
     COUNT(*)                                   AS total_records,
@@ -340,48 +289,14 @@ SELECT
           / COUNT(*), 2)                       AS delinquency_rate_pct
 FROM cc_detail;
 
--- Expected output:
--- total_records = 10,293 | unique_customers = 10,293
--- total_transaction_amount = $45,533,021
--- total_interest_earned = $7,982,479.81
--- total_revenue = $53,515,500.81
--- delinquency_rate_pct = 6.06%
+-- Expected: 10,293 records | $45.5M trans | $7.98M interest | $53.5M revenue | 6.06% delinquency
 ```
-> **Why this matters:** This single query is the **golden-source validation** — if these numbers match the Power BI KPI cards, the entire pipeline is trustworthy. Always reconcile SQL aggregates against the BI layer before publishing.
-
----
-
-### Query 5: Revenue by Card Category (Drives a Dashboard Visual)
-
-```sql
--- Purpose: Power the "Revenue by Card Category" bar chart on Page 1.
-
-SELECT
-    Card_Category,
-    COUNT(*)                                   AS transaction_records,
-    SUM(Total_Trans_Amt + Interest_Earned)     AS total_revenue,
-    ROUND(100.0 * SUM(Total_Trans_Amt + Interest_Earned)
-          / SUM(SUM(Total_Trans_Amt + Interest_Earned)) OVER (), 2) AS revenue_share_pct
-FROM cc_detail
-GROUP BY Card_Category
-ORDER BY total_revenue DESC;
-
--- Result preview:
--- Blue      | 9,384 records | $37.8M | 70.6%
--- Silver    |   649 records |  $4.6M |  8.7%
--- Gold      |   193 records |  $2.1M |  3.9%
--- Platinum  |    67 records |  $0.9M |  1.8%
-```
-> **Why this matters:** Window functions (`OVER ()`) let you compute percentage-of-total in a single pass — no subqueries, no temp tables. This is the kind of SQL that distinguishes a junior from a senior analyst.
 
 ---
 
 ## 📐 Key DAX Measures
 
-The Power BI model uses a combination of **calculated columns** (for grouping) and **measures** (for aggregation). Below are the most business-critical ones.
-
-### Measure 1: Total Revenue
-
+### Total Revenue
 ```dax
 Total Revenue =
     SUMX(
@@ -389,22 +304,9 @@ Total Revenue =
         'cc_detail'[Total_Trans_Amt] + 'cc_detail'[Interest_Earned]
     )
 ```
-> **Purpose:** Computes the headline revenue metric by summing transaction amount and interest earned row-by-row. Using `SUMX` (an iterator) instead of `SUM` + `SUM` ensures the calculation respects any filter context — critical when users slice by Quarter, Card Category, or Expense Type.
+> Uses `SUMX` (iterator) instead of `SUM` + `SUM` to respect any filter context — critical when users slice by Quarter, Card Category, or Expense Type.
 
----
-
-### Measure 2: Total Transactions
-
-```dax
-Total Transactions =
-    SUM('cc_detail'[Total_Trans_Ct])
-```
-> **Purpose:** Aggregates the per-week transaction count into a single KPI card (667,234 total). Used in the combo chart's secondary axis to show volume-vs-revenue trends.
-
----
-
-### Measure 3: Delinquency Rate
-
+### Delinquency Rate
 ```dax
 Delinquency Rate % =
     DIVIDE(
@@ -416,29 +318,19 @@ Delinquency Rate % =
         0
     ) * 100
 ```
-> **Purpose:** Returns the delinquency percentage (6.06%) and dynamically recalculates under any slicer selection. `DIVIDE` is used instead of `/` to avoid divide-by-zero errors when filters exclude all rows.
+> `DIVIDE` is used instead of `/` to avoid divide-by-zero errors when filters exclude all rows.
 
----
-
-### Measure 4: Activation Rate (30 Days)
-
+### Activation Rate (30 Days)
 ```dax
 Activation 30D Rate % =
     DIVIDE(
-        CALCULATE(
-            COUNTROWS('cc_detail'),
-            'cc_detail'[Activation_30_Days] = 1
-        ),
+        CALCULATE(COUNTROWS('cc_detail'), 'cc_detail'[Activation_30_Days] = 1),
         COUNTROWS('cc_detail'),
         0
     ) * 100
 ```
-> **Purpose:** Measures the percentage of accounts activated within 30 days of issuance (57.46%). This is a critical onboarding-funnel KPI — low rates trigger workflow review.
 
----
-
-### Calculated Column 1: Age Group
-
+### Calculated Column: Age Group
 ```dax
 AgeGroup =
     SWITCH(
@@ -450,12 +342,9 @@ AgeGroup =
         "60+"
     )
 ```
-> **Purpose:** Bins continuous age into 5 discrete bands for slicer-driven analysis. `SWITCH(TRUE(), ...)` is the idiomatic DAX pattern for ranged conditions — cleaner and faster than nested `IF`.
+> `SWITCH(TRUE(), ...)` is the idiomatic DAX pattern for ranged conditions — cleaner than nested `IF`.
 
----
-
-### Calculated Column 2: Income Group
-
+### Calculated Column: Income Group
 ```dax
 IncomeGroup =
     SWITCH(
@@ -466,17 +355,6 @@ IncomeGroup =
         "High"
     )
 ```
-> **Purpose:** Segments customers into 4 income bands based on observed distribution. Used as a slicer on the Customer page to enable income-stratified marketing analysis.
-
----
-
-### Measure 5: Average Satisfaction Score
-
-```dax
-Avg Satisfaction =
-    AVERAGE('cust_detail'[Cust_Satisfaction_Score])
-```
-> **Purpose:** Returns the mean satisfaction score (3.19 / 5) and dynamically recalculates under any demographic filter — letting the customer-success team identify which segments are happiest and which need intervention.
 
 ---
 
@@ -489,24 +367,22 @@ credit-card-analytics/
 │   └── Credit Card Analsis.pbix          # Main Power BI report file
 │
 ├── 🗄️ SQL/
-│   └── credit_card_schema.sql            # Schema + COPY ingestion + validation queries
+│   └── credit-card-schema.sql            # Schema + COPY ingestion + validation
 │
 ├── 📂 Data/
-│   ├── raw/
-│   │   ├── credit_card.csv               # 10,108 transactional rows (52 weeks)
-│   │   ├── customer.csv                  # 10,108 customer demographic rows
-│   │   ├── cc_add.csv                    # 185 Week-53 incremental transactions
-│   │   └── cust_add.csv                  # 185 Week-53 incremental customers
-│   └── processed/
-│       └── (generated by SQL COPY — not versioned)
+│   └── raw/
+│       ├── credit_card.csv               # 10,108 transactional rows (52 weeks)
+│       ├── customer.csv                  # 10,108 customer demographic rows
+│       ├── cc_add.csv                    # 185 Week-53 incremental transactions
+│       └── cust_add.csv                  # 185 Week-53 incremental customers
 │
 ├── 🖼️ Screenshots/
-│   ├── cc_transaction_dashboard.png      # Page 1 hero screenshot
-│   ├── cc_customer_dashboard.png         # Page 2 hero screenshot
-│   └── data_model.png                    # Star schema diagram
+│   ├── cc-transaction-dashboard.png      # Page 1 hero screenshot
+│   ├── cc-customer-dashboard.png         # Page 2 hero screenshot
+│   └── data-model.png                    # Star schema diagram
 │
-├── 📄 README.md                          # You are here
-└── 📜 LICENSE                            # MIT License
+├── 📄 README.md
+└── 📜 LICENSE
 ```
 
 ---
@@ -516,11 +392,10 @@ credit-card-analytics/
 ### Prerequisites
 
 - [ ] **Power BI Desktop** (Feb 2026 or later) — [Download free](https://powerbi.microsoft.com/desktop/)
-- [ ] **PostgreSQL 14+** (optional, only if you want to rebuild the schema)
-- [ ] **Git** for cloning the repository
-- [ ] A code editor (VS Code recommended) for viewing SQL & DAX
+- [ ] **PostgreSQL 14+** (optional, only if rebuilding the schema)
+- [ ] **Git** for cloning
 
-### Step-by-Step Setup
+### Steps
 
 **1. Clone the repository**
 ```bash
@@ -530,23 +405,15 @@ cd credit-card-analytics
 
 **2. (Optional) Recreate the SQL schema**
 ```bash
-# Connect to your PostgreSQL instance
-psql -U postgres -d postgres -f SQL/credit_card_schema.sql
+psql -U postgres -d postgres -f SQL/credit-card-schema.sql
 
-# Or run file-by-file in pgAdmin / DBeaver:
-#   1. CREATE DATABASE ccdb;
-#   2. CREATE TABLE cc_detail (...);
-#   3. CREATE TABLE cust_detail (...);
-#   4. COPY cc_detail   FROM 'D:\credit_card.csv'  DELIMITER ',' CSV HEADER;
-#   5. COPY cust_detail FROM 'D:\customer.csv'     DELIMITER ',' CSV HEADER;
-#   6. COPY cc_detail   FROM 'D:\cc_add.csv'       DELIMITER E'\t' CSV HEADER;
-#   7. COPY cust_detail FROM 'D:\cust_add.csv'     DELIMITER ',' CSV HEADER;
+# Or run file-by-file in pgAdmin / DBeaver — update file paths in COPY commands
 ```
 
 **3. Open the Power BI report**
 ```
 Open PowerBI/Credit Card Analsis.pbix
-→ The report will load with embedded data automatically
+→ The report loads with embedded data automatically
 → No SQL connection required for viewing
 ```
 
@@ -554,39 +421,30 @@ Open PowerBI/Credit Card Analsis.pbix
 ```
 Home → Transform Data → Data source settings
 → Change source to your PostgreSQL instance
-→ Close & Apply
-→ Home → Refresh
-```
-
-**5. Interact with the dashboard**
-```
-→ Use slicers on Page 1: Quarter, Card Category
-→ Use slicers on Page 2: Gender, Income Group, Age Group
-→ Hover any visual for tooltip details
-→ Click a bar to cross-filter other visuals on the page
+→ Close & Apply → Home → Refresh
 ```
 
 ---
 
 ## 💡 Key Business Insights
 
-> 🔍 **Finding 1:** Revenue grew **3.97%** from Q1 to Q4 ($11.25M → $11.70M) — a healthy, steady trajectory.
-> → **Impact:** Leadership can confidently increase Q1 acquisition spend knowing the back-half trend supports payback.
+> 🔍 **Finding 1:** Revenue grew **3.97%** from Q1 to Q4 — healthy, steady trajectory.
+> → **Impact:** Leadership can confidently increase Q1 acquisition spend; back-half trend supports payback.
 
-> 🔍 **Finding 2:** The **Blue card generates 70.6% of total revenue ($37.8M)**, while Platinum contributes only 1.8%.
-> → **Impact:** Massive premium-tier upgrade opportunity. Targeted migration campaigns to high-income Blue customers could meaningfully lift per-account revenue.
+> 🔍 **Finding 2:** The **Blue card generates 70.6% of revenue**; Platinum only 1.8%.
+> → **Impact:** Massive premium-tier upgrade opportunity. Target high-income Blue customers for migration.
 
-> 🔍 **Finding 3:** **Bills (24.5%)**, Entertainment, and Fuel together drive **58.5%** of all transaction spend.
-> → **Impact:** The flat 1× rewards structure under-monetizes Bills. A category-tiered cashback model would directly reward the highest-yield behaviors.
+> 🔍 **Finding 3:** **Bills, Entertainment, and Fuel drive 58.5%** of all transaction spend.
+> → **Impact:** Flat 1× rewards under-monetize Bills. Category-tiered cashback would reward highest-yield behaviors.
 
-> 🔍 **Finding 4:** **Swipe transactions still drive 70.3%** of revenue; Chip adoption is only 23.9%.
-> → **Impact:** Significant fraud-risk reduction available through chip-migration campaigns. A one-time cashback incentive on Chip transactions could shift behavior quickly.
+> 🔍 **Finding 4:** **Swipe drives 70.3%** of revenue; Chip adoption only 23.9%.
+> → **Impact:** Significant fraud-risk reduction available through chip-migration campaigns.
 
-> 🔍 **Finding 5:** **6.06% delinquency rate** combined with **42.5% non-activation within 30 days** signals a leaky onboarding funnel.
-> → **Impact:** Risk and customer-success teams should jointly review the delinquent cohort for common attributes and tighten underwriting for similar profiles. Activation workflow redesign is overdue.
+> 🔍 **Finding 5:** **6.06% delinquency** + **42.5% non-activation** within 30 days = leaky onboarding funnel.
+> → **Impact:** Risk and customer-success teams should jointly review the delinquent cohort and redesign the activation workflow.
 
-> 🔍 **Finding 6:** Average satisfaction score is **3.19 / 5** — below the industry-healthy 3.5 threshold.
-> → **Impact:** Sub-3.5 satisfaction is a churn risk signal. Prioritize outreach to the lowest-quartile cohort and review service touchpoints for the underperforming segments.
+> 🔍 **Finding 6:** Average satisfaction is **3.19 / 5** — below the industry-healthy 3.5 threshold.
+> → **Impact:** Sub-3.5 is a churn risk signal. Prioritize outreach to the lowest-quartile cohort.
 
 ---
 
@@ -595,7 +453,7 @@ Home → Transform Data → Data source settings
 **[Your Name]**
 Data Analyst | Financial Analytics & BI Specialist
 
-I build end-to-end analytics solutions that turn raw operational data into executive-grade dashboards. My focus is the full stack — SQL data warehousing, Power BI semantic modeling, DAX measures, and the business storytelling that ties it all together.
+I build end-to-end analytics solutions that turn raw operational data into executive-grade dashboards — SQL data warehousing, Power BI semantic modeling, DAX measures, and the business storytelling that ties it all together.
 
 - 📧 **Email:** [your.email@example.com](mailto:your.email@example.com)
 - 💼 **LinkedIn:** [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
@@ -611,7 +469,7 @@ Are you a financial services business looking to:
 
 → **Democratize data access** across product, risk, and marketing teams?
 → **Identify revenue concentration risks** before they become problems?
-→ **Segment customers** for targeted acquisition and retention campaigns?
+→ **Segment customers** for targeted acquisition and retention?
 → **Make data-driven decisions** instead of gut-driven ones?
 
 **I can help. Let's talk.**
@@ -622,7 +480,7 @@ Are you a financial services business looking to:
 
 ## ⭐ Support This Project
 
-If this project helped you, inspired you, or taught you something new — please consider giving it a star! ⭐
+If this project helped you, please consider giving it a star! ⭐
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/[your-username]/credit-card-analytics?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/[your-username]/credit-card-analytics?style=social)
@@ -632,14 +490,12 @@ If this project helped you, inspired you, or taught you something new — please
 
 ## 📜 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details. You're free to use, modify, and distribute this work with attribution.
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 ---
 
 <div align="center">
 
 *Built with ❤️, PostgreSQL, and Power BI by **[Your Name]** · 2025*
-
-*If you found this useful, give it a ⭐ — it helps others discover it too.*
 
 </div>
