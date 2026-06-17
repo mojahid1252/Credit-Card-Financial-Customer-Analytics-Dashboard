@@ -19,7 +19,7 @@
 
 ### 🖼️ Hero Dashboard — Credit Card Transaction Report
 
-![Credit Card Transaction Dashboard](Screenshots/cc-transaction-dashboard.png)
+![Credit Card Transaction Dashboard](Screenshotscc-transaction-dashboard.png)
 
 *A 2-page Power BI executive dashboard built on a PostgreSQL star-schema model with 10K+ transactional rows.*
 
@@ -61,7 +61,7 @@ Built a centralized PostgreSQL warehouse (`ccdb`) that consolidates transactiona
 
 ### 📊 Page 1: CC Transaction Report
 
-![CC Transaction Dashboard](Screenshots/cc-transaction-dashboard.png)
+![CC Transaction Dashboard](Screenshotscc-transaction-dashboard.png)
 
 > *Quarterly revenue, transaction volume, card-category breakdown, expense-type distribution, chip-vs-swipe behavior, and delinquency signals.*
 
@@ -69,7 +69,7 @@ Built a centralized PostgreSQL warehouse (`ccdb`) that consolidates transactiona
 
 ### 👥 Page 2: CC Customer Report
 
-![CC Customer Dashboard](Screenshots/cc-customer-dashboard.png)
+![CC Customer Dashboard](Screenshotscc-customer-dashboard.png)
 
 > *Customer demographics, income & age groups, satisfaction score, job distribution, and geographic spread.*
 
@@ -188,7 +188,7 @@ Two related tables connected through the shared `Client_Num` surrogate key. The 
 
 ## 🔍 SQL Highlights
 
-Full source in [`SQL/credit-card-schema.sql`](SQL/credit-card-schema.sql).
+Full source in [`SQL/credit-card-schema.sql`](https://github.com/mojahid1252/-Credit-Card-Financial-Customer-Analytics-Dashboard/blob/489be87cd24c2fb665a4e8a1bd54bfac8eef8d65/credit-card-schema.sql).
 
 ### Query 1: Schema Initialization
 
