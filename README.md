@@ -423,8 +423,8 @@ Home → Transform Data → Data source settings
 
 ## 👨‍💻 About The Analyst
 
-**[Your Name]**
-Data Analyst | Financial Analytics & BI Specialist
+**[Mozahidul Islam]**
+Data Analyst | E-Commerce Analytics & BI Specialist
 
 I build end-to-end analytics solutions that turn raw operational data into executive-grade dashboards - SQL data warehousing, Power BI semantic modeling, DAX measures, and the business storytelling that ties it all together.
 
