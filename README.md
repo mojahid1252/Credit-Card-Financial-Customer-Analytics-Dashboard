@@ -468,6 +468,6 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 <div align="center">
 
-*Built with ❤️, PostgreSQL, and Power BI by **[Your Name]** · 2025*
+*Built with ❤️, PostgreSQL, and Power BI by **[Mozahud]** · 2025*
 
 </div>
